@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassiBot.Core", "MassiBot.Core\MassiBot.Core.csproj", "{75388BF3-67E1-4FB3-96EE-E800DA0B8FE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassiBot.Infra", "MassiBot.Infra\MassiBot.Infra.csproj", "{E27C4A40-B2F1-40B1-B4BE-4FEDBED856D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassiBot.Bot", "MassiBot.Bot\MassiBot.Bot.csproj", "{B09A091F-0903-4907-A040-A3A77DF3D276}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75388BF3-67E1-4FB3-96EE-E800DA0B8FE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75388BF3-67E1-4FB3-96EE-E800DA0B8FE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75388BF3-67E1-4FB3-96EE-E800DA0B8FE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75388BF3-67E1-4FB3-96EE-E800DA0B8FE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E27C4A40-B2F1-40B1-B4BE-4FEDBED856D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E27C4A40-B2F1-40B1-B4BE-4FEDBED856D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E27C4A40-B2F1-40B1-B4BE-4FEDBED856D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E27C4A40-B2F1-40B1-B4BE-4FEDBED856D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B09A091F-0903-4907-A040-A3A77DF3D276}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B09A091F-0903-4907-A040-A3A77DF3D276}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B09A091F-0903-4907-A040-A3A77DF3D276}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B09A091F-0903-4907-A040-A3A77DF3D276}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
