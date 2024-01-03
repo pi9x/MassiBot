@@ -9,6 +9,8 @@ using Microsoft.Bot.Builder.Integration.AspNet.Core;
 using Microsoft.Bot.Connector.Authentication;
 using Microsoft.Extensions.DependencyInjection;
 
+[assembly: FunctionsStartup(typeof(MassiBot.Bot.Startup))]
+
 namespace MassiBot.Bot;
 
 public class Startup : FunctionsStartup
