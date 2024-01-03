@@ -18,7 +18,7 @@ public class AzureBlobUploader : IUploader
     public async Task<bool> Upload(Stream content, string fileName, Dictionary<string, string> tags)
     {
         var blobClient = GetBlobClient(fileName);
-        await blobClient.SetTagsAsync(tags);
+        //await blobClient.SetTagsAsync(tags);
         var response = await blobClient.UploadAsync(content, true);
         
         return !response.GetRawResponse().IsError;
