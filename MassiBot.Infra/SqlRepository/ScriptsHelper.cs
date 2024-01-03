@@ -4,25 +4,28 @@ using Microsoft.Extensions.Options;
 
 namespace MassiBot.Infra.SqlRepository;
 
-public interface IScriptsHelper
+public class ScriptsHelper
 {
-    string GetRawScript(string fileName);
-}
-
-public class ScriptsHelper : IScriptsHelper
-{
-    private readonly IOptions<ExecutionContextOptions> _executionContext;
-
-    public ScriptsHelper(IOptions<ExecutionContextOptions> executionContext)
+    public static string GetRawScript()
     {
-        _executionContext = executionContext;
-    }
-
-    public string GetRawScript(string fileName)
-    {
-        var rootDir = _executionContext.Value.AppDirectory;
-        var filePath = Path.Combine(rootDir, "SqlRepository", "Scripts", fileName);
-        
-        return File.ReadAllText(filePath);
+        return @"
+SELECT
+    p.PoId,
+    p.PoIdName,
+    e.EmployeeId,
+    e.Name AS EmployeeName,
+    te.StartDate AS CycleStartDate,
+    te.EndDate AS CycleEndDate,
+    te.TotalDays AS ActualWorkingDays,
+    te.MissingDays AS MissingDays,
+    te.Url
+FROM Timesheet_Entry te
+INNER JOIN Po p ON
+    te.PoId = p.PoId
+INNER JOIN Employee e ON
+    te.EmployeeId = e.EmployeeId
+WHERE 1 = 1
+--<<WHERE_CLAUSE>>--
+";
     }
 }
