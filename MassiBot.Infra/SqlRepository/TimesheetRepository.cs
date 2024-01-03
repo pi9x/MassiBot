@@ -9,10 +9,12 @@ namespace MassiBot.Infra.SqlRepository;
 public class TimesheetRepository : ITimesheetRepository
 {
     private readonly IDbConnection _dbConnection;
+    private readonly IScriptsHelper _scriptsHelper;
 
-    public TimesheetRepository(IDbConnection dbConnection)
+    public TimesheetRepository(IDbConnection dbConnection, IScriptsHelper scriptsHelper)
     {
         _dbConnection = dbConnection;
+        _scriptsHelper = scriptsHelper;
     }
 
     /// <inheritdoc />
@@ -37,7 +39,7 @@ public class TimesheetRepository : ITimesheetRepository
         
         var whereClause = whereBuilder.ToString();
         
-        var rawScript = ScriptsHelper.GetRawScript().Replace("--<<WHERE_CLAUSE>>--", whereClause);
+        var rawScript = _scriptsHelper.GetRawScript("QueryTimesheet.sql").Replace("--<<WHERE_CLAUSE>>--", whereClause);
         
         return await _dbConnection.QueryAsync<TimesheetRow>(rawScript, parameters, commandType: CommandType.Text);
     }
@@ -53,6 +55,7 @@ public static class TimesheetRepositoryRegistration
     public static IServiceCollection UseTimesheetRepository(this IServiceCollection services)
     {
         return services
+            .AddScoped<IScriptsHelper, ScriptsHelper>()
             .AddScoped<ITimesheetRepository, TimesheetRepository>();
     }
 }
